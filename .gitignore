@@ -3,3 +3,4 @@ generateHandler
 *.swp
 handlers/*
 transactions/*
+generators/generators
