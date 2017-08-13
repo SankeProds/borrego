@@ -1,2 +1,5 @@
 borrego
+generateHandler
 *.swp
+handlers/*
+transactions/*
