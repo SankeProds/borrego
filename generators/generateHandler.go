@@ -8,12 +8,7 @@ import (
 	"text/template"
 )
 
-type Transaction struct {
-	Name     string
-	Endpoint string
-}
-
-func getTransDataFromFile(filepath string) (Transaction, error) {
+func GetTransDataFromFile(filepath string) (Transaction, error) {
 	var transData Transaction
 	file, err := ioutil.ReadFile(filepath)
 	if err != nil {
@@ -49,10 +44,8 @@ func createTransHandler(transData Transaction, tmplPath string, handlerFileForma
 	return nil
 }
 
-func main() {
-	// CREATES Transaction FROM .trans FILE
-	transactionFilePath := os.Args[1]
-	transData, err := getTransDataFromFile(transactionFilePath)
+func GenHandler(transactionFilePath string) {
+	transData, err := GetTransDataFromFile(transactionFilePath)
 	if err != nil {
 		fmt.Printf("Error loading Transaction %s: %v\n", transactionFilePath, err)
 		os.Exit(1)

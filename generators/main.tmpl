@@ -1,0 +1,11 @@
+package main
+
+import (
+	"net/http"
+	"github.com/SankeProds/borrego/handlers"
+)
+
+func main() {
+{{range .Transactions}}	http.Handle("{{.Endpoint}}", http.HandlerFunc(handlers.{{.Name}}))
+{{end}}	http.ListenAndServe(":8080", nil)
+}
